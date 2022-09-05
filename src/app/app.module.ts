@@ -10,6 +10,7 @@ import { AdminPage } from './pages/admin/admin.page';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { FormsModule } from '@angular/forms';
+import { ShipmentFormComponent } from './components/shipment-form/shipment-form.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FormsModule } from '@angular/forms';
     RegisterPage,
     UserPage,
     AdminPage,
-    LoginFormComponent
+    LoginFormComponent,
+    ShipmentFormComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { LoginPage } from "./pages/login/login.page";
+import { MainPage } from "./pages/main/main.page";
 
 
 const routes: Routes = [
@@ -12,6 +13,10 @@ const routes: Routes = [
     {
         path: "login",
         component: LoginPage
+    },
+    {
+        path: "main",
+        component: MainPage
     }
 ]
 
