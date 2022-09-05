@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppComponent } from './app.component';
 import { LoginPage } from './pages/login/login.page';
 import { MainPage } from './pages/main/main.page';
 import { RegisterPage } from './pages/register/register.page';
@@ -10,7 +8,9 @@ import { AdminPage } from './pages/admin/admin.page';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { FormsModule } from '@angular/forms';
-import { ShipmentFormComponent } from './components/shipment-form/shipment-form.component';
+import { RegisterFormComponent } from './components/register-form/register-form.component';
+import { AppComponent } from './app.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -21,14 +21,19 @@ import { ShipmentFormComponent } from './components/shipment-form/shipment-form.
     UserPage,
     AdminPage,
     LoginFormComponent,
-    ShipmentFormComponent,
+    RegisterFormComponent,
+    NavBarComponent,
+  
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+  
   ],
+  bootstrap: [AppComponent],
   providers: [],
-  bootstrap: [AppComponent]
+
 })
 export class AppModule { }
