@@ -3,6 +3,16 @@
 @tailwind components;
 @tailwind utilities;
 
-.bg-dark-blue{
-    background-color: #141d2c;
+
+
+.color-theme-yellow{
+
+    background-color: #fcde67;
+
+}
+
+.color-theme-blue{
+
+    background-color: #5bccf6;
+
 }

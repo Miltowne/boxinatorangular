@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppComponent } from './app.component';
+import { DoBootstrap } from '@angular/core';
 import { LoginPage } from './pages/login/login.page';
 import { MainPage } from './pages/main/main.page';
 import { RegisterPage } from './pages/register/register.page';
@@ -10,6 +9,8 @@ import { AdminPage } from './pages/admin/admin.page';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { FormsModule } from '@angular/forms';
+import { RegisterFormComponent } from './components/register-form/register-form.component';
+import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
@@ -19,14 +20,19 @@ import { FormsModule } from '@angular/forms';
     RegisterPage,
     UserPage,
     AdminPage,
-    LoginFormComponent
+    LoginFormComponent,
+    RegisterFormComponent,
+  
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+  
   ],
+  bootstrap: [AppComponent],
   providers: [],
-  bootstrap: [AppComponent]
+
 })
 export class AppModule { }
