@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ShipmentService } from 'src/app/services/shipment.service';
 
 @Component({
   selector: 'app-shipment-form',
@@ -10,7 +9,6 @@ import { ShipmentService } from 'src/app/services/shipment.service';
 export class ShipmentFormComponent implements OnInit {
 
   constructor(
-    private readonly shipmentService: ShipmentService
   ) { }
 
   ngOnInit(): void {
