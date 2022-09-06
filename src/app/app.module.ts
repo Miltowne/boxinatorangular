@@ -11,6 +11,9 @@ import { AdminPage } from './pages/admin/admin.page';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { FormsModule } from '@angular/forms';
+import { RegisterFormComponent } from './components/register-form/register-form.component';
+import { AppComponent } from './app.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,11 @@ import { FormsModule } from '@angular/forms';
     RegisterPage,
     UserPage,
     AdminPage,
-    LoginFormComponent
+    LoginFormComponent,
+    RegisterFormComponent,
+    NavBarComponent,
+  
+    
   ],
   imports: [
     BrowserModule,
@@ -28,7 +35,8 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     HttpClientModule
   ],
+  bootstrap: [AppComponent],
   providers: [],
-  bootstrap: [AppComponent]
+
 })
 export class AppModule { }
