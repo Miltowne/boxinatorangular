@@ -6,17 +6,15 @@ import { Router } from '@angular/router';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.css']
 })
-export class LoginPage implements OnInit {
+export class LoginPage {
 
-  constructor(
-    private readonly router: Router
-  ) { }
+  constructor(private readonly router: Router) { }
 
   ngOnInit(): void {
   }
 
-  handleLogin(){
-    this.router.navigateByUrl("/login")
+  handleLogin(): void { // Redirects to the main page.
+    this.router.navigateByUrl("/main")
   }
 
 }
