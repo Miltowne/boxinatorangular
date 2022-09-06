@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+
+import { AppComponent } from './app.component';
 import { LoginPage } from './pages/login/login.page';
 import { MainPage } from './pages/main/main.page';
 import { RegisterPage } from './pages/register/register.page';
@@ -30,7 +33,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-  
+    HttpClientModule
   ],
   bootstrap: [AppComponent],
   providers: [],

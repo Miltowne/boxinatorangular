@@ -1,19 +1,21 @@
-<form  #loginForm="ngForm" (ngSubmit)="loginSubmit(loginForm)">
-    <fieldset class="mb-3">
-        <label for="username" class="block">Username</label>
-        <input type="text" 
-        ngModel
-        #username="ngModel"
-        required="To short username"
-        minlength="3"
-        name="username" id="username"
-        class="border border-slate-300 p-2 rounded 2-full" 
-        placeholder="hello">
-    </fieldset>
-    <button   
-    [disabled]="loginForm.form.invalid"
-     type="submit" class="bg-blue-500 p-2 rounded">Login</button>
-</form>
+<div class="login-box">
+    <form #loginForm="ngForm" (ngSubmit)="loginSubmit(loginForm)">
+        <fieldset class="mb-3">
+            <h2>Login</h2>
+            <div class="user-box">
+            <label for="username"></label>
+            </div>
+            <input type="text"
+            ngModel
+            #username="ngModel"
+            name="username" id="username"
+            class="border p-2 rounded w-full bg-slate-600"
+            required=""
+            placeholder="Enter username here please!">
+        </fieldset>
+        <button type="submit" class="bg-slate-600 p-2 rounded">Login</button>
+    </form>
+    </div>
 
 <div class="text-white" *ngIf="username.errors && (username.touched)"> <p 
      *ngIf="username.errors['required']" > required please enter a username </p>

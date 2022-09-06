@@ -28,10 +28,10 @@ const routes: Routes = [
 ]
 
 @NgModule({
-    imports: [
+    imports: [ // Import a module
         RouterModule.forRoot(routes)
     ],
-    exports: [
+    exports: [ // Exports a module and its feature
         RouterModule
     ]
 })
