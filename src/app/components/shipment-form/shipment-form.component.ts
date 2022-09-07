@@ -12,7 +12,7 @@ export class ShipmentFormComponent implements OnInit {
   constructor(
     private readonly shipmentService: ShipmentService
   ) { }
-
+  public loggedIn: boolean = this.shipmentService._loggedIn;
   ngOnInit(): void {
   }
 
