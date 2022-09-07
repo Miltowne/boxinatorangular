@@ -30,6 +30,7 @@ export class MainPage implements OnInit {
   
 
   ngOnInit(): void {
+    this.shipmentService.findAllShipments()
   }
 
 }

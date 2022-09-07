@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Shipment } from '../models/shipment.model';
 
@@ -6,7 +7,9 @@ import { Shipment } from '../models/shipment.model';
 })
 export class ShipmentService {
 
-  constructor() { }
+  constructor(
+    private readonly http: HttpClient
+  ) { }
 
   public _loggedIn: boolean = false;
   public shipmentList: Shipment[] = [
@@ -15,10 +18,16 @@ export class ShipmentService {
     {BoxColor: 'red', Destination: 'Sweden', RecieverName: 'Marcus', ShipmentId: 0, Weight: 120},
   ];
 
-  // get loggedIn(): boolean{
-  //   return this._loggedIn
-  // }
-  // set loggedIn(value: boolean): boolean{
-  //   this._loggedIn = value
-  // }
+  public findAllShipments(){
+
+    this.http.get<any>("https://boxinatorboxboysapi.azurewebsites.net/api/v1/users")
+    .subscribe({
+      next: (shipmentlist: Shipment[]) => {
+        
+        shipmentlist.forEach(element => {
+          console.log(element)
+        });
+      }
+    })
+  }
 }
