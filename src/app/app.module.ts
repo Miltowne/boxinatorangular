@@ -12,12 +12,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { FormsModule } from '@angular/forms';
 import { RegisterFormComponent } from './components/register-form/register-form.component';
-import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { ShipmentFormComponent } from './components/shipment-form/shipment-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ShipmentFormComponent,
     LoginPage,
     MainPage,
     RegisterPage,
