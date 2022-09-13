@@ -1,53 +1,132 @@
-
 <body class="color-theme-yellow h-screen">
-<div ng-app = "myApp" class = "container" style="width:550px">
-<div style="text-align:center;">
-<h3><b>User Registraion</b></h3>
-</div>
-<div ng-controller = "RegisterController" >
-<div align="right">
-</div>
-<form role = "form" class="well" ng-hide="ifSearchUser">
-<div class = "form-group">
-<label for = "name"> First Name:  </label>
-<input type = "text" id = "firstname" class = "form-control" placeholder = "Enter Name " ng-model = "newuser.firstname">
-</div>
-<div class = "form-group">
-<label for = "name"> Last Name:  </label>
-<input type = "text" id = "lastname" class = "form-control" placeholder = "Enter Last Name " ng-model = "newuser.lastname">
-</div>
-<div class = "form-group">
-<label for = "email"> Email:  </label>
-<input type = "email" id = "email" class = "form-control" placeholder = "Enter Email " ng-model = "newuser.email">
-</div>
-<div class = "form-group">
-<label for = "password"> Password:  </label>
-<input type = "password" id = "password" class = "form-control" placeholder = "Enter Password " ng-model = "newuser.password">
-</div>
-<div class = "form-group">
-<label for = "comfirmpassword"> Comfirm Password:  </label>
-<input type = "text" id = "comfirmpassword" class = "form-control" placeholder = "Comfirm Password" ng-model = "newuser.comfirmpassword">
-</div>
-<div class = "form-group">
-<label for = "name"> Country:  </label>
-<input type = "text" id = "country" class = "form-control" placeholder = "Enter Country" ng-model = "newuser.country">
-</div>
-<div class = "form-group">
-<label for = "name"> Postal Code:  </label>
-<input type = "text" id = "postalcode" class = "form-control" placeholder = "Enter Postal Code" ng-model = "newuser.postalcode">
-</div>
-<div class = "form-group">
-<label for = "phone"> Phone:  </label>
-<input type = "text" id = "phone" class = "form-control" placeholder = "Enter Phone " ng-model = "newuser.phone">
-</div>
-<div class = "form-group">
-<label for = "name"> Date Of Birth:  </label>
-<input type = "text" id = "dateofbirth" class = "form-control" placeholder = "Enter Date Of Birth" ng-model = "newuser.dateofbirth">
-</div>
-<br>
-<input type="hidden" ng-model="newuser.id">
-<input type="button" class="btn btn-primary" ng-click="saveUser()" class="btn btn-primary" value = "Submit">
-</form>
-</div>
-</div>
+  <div ng-app="myApp" class="container" style="width: 550px">
+    <div style="text-align: center">
+      <h3><b>User Registraion</b></h3>
+    </div>
+    <div ng-controller="RegisterController">
+      <div align="right"></div>
+      <form
+        role="form"
+        class="well"
+        ng-hide="ifSearchUser"
+        #registerForm="ngForm"
+        (ngSubmit)="registerSubmit(registerForm)"
+      >
+        <div class="form-group">
+          <label for="firstname"> First Name: </label>
+          <input
+          ngModel
+          #firstname
+          name="firstname"
+          type="firstname"
+          id="firstname"
+          class="form-control"
+          placeholder="firstname"
+          />
+        </div>
+        <div class="form-group">
+          <label for="lastname"> Last Name: </label>
+          <input
+          ngModel
+          #lastname
+          name="lastname"
+          type="lastname"
+          id="lastname"
+          class="form-control"
+          placeholder="lastname"
+          />
+        </div>
+        <div class="form-group">
+          <label for="email"> Email: </label>
+          <input
+          ngModel
+          #email
+          name="email"
+          type="email"
+          id="email"
+          class="form-control"
+          placeholder="email"
+          />
+        </div>
+        <div class="form-group">
+          <label for="password"> Password: </label>
+          <input
+          ngModel
+          #password
+          name="password"
+          type="password"
+          id="password"
+          class="form-control"
+          placeholder="password"
+          />
+        </div>
+        <div class="form-group">
+          <label for="comfirmpassword"> Comfirm Password: </label>
+          <input
+          ngModel
+          #country
+          name="comfirmpassword"
+          type="password"
+          id="comfirmpassword"
+          class="form-control"
+          placeholder="comfirmpassword"
+          />
+        </div>
+        <div class="form-group">
+          <label for="country"> Country: </label>
+          <input
+          ngModel
+          #country
+          name="country"
+          type="text"
+          id="country"
+          class="form-control"
+          placeholder="Enter country"
+          />
+        </div>
+        <div class="form-group">
+          <label for="postalcode"> Postal Code: </label>
+          <input
+            ngModel
+            #postalcode
+            name="postalcode"
+            type="text"
+            id="postalcode"
+            class="form-control"
+            placeholder="Enter Postal Code"
+          />
+        </div>
+        <div class="form-group">
+          <label for="phone"> Phone: </label>
+          <input
+            ngModel
+            #phone
+            name="phone"
+            type="text"
+            id="phone"
+            class="form-control"
+            placeholder="Enter Phone "
+          />
+        </div>
+        <!-- <div class="form-group">
+          <label for="name"> Date Of Birth: </label>
+          <input
+            type="text"
+            id="dateofbirth"
+            class="form-control"
+            placeholder="Enter Date Of Birth"
+            ng-model="newuser.dateofbirth"
+          />
+        </div> -->
+        <br />
+        <input type="hidden" ng-model="newuser.id" />
+        <input
+          type="submit"
+          class="btn btn-primary"
+          class="btn btn-primary"
+          value="Submit"
+        />
+      </form>
+    </div>
+  </div>
 </body>
