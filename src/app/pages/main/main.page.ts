@@ -12,7 +12,7 @@ export class MainPage implements OnInit {
     private readonly shipmentService: ShipmentService
   ) { }
 
-  public loggedIn: boolean = this.shipmentService._loggedIn;
+  public loggedIn: boolean = false;
 
   public makeLoggedIn(){
     if(this.loggedIn){

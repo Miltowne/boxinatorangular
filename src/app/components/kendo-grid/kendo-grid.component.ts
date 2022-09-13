@@ -1,8 +1,8 @@
 import { Component, Input, OnInit, ViewChild } from "@angular/core";
 import { DataBindingDirective } from "@progress/kendo-angular-grid";
 import { process } from "@progress/kendo-data-query";
-import { Shipment } from "src/app/models/shipment.model";
-import { employees } from "../../models/employees";
+import { Shipment } from "src/app/models/shipment.model"; 
+import { employees } from "src/app/models/employees";
 import { images } from "../../models/images";
 
 @Component({
