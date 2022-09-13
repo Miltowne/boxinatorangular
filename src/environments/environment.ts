@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUsers: "https://noroff-orebroassignments-api.herokuapp.com/trainers",
+  apiUsers: "https://boxinatorboxboysapi.azurewebsites.net/api/v1/users",
   apiPokemons: "https://pokeapi.co/api/v2/pokemon",
   API_KEY: "lv8ru8DUZUqGAFKlHe+fwQ=="
 };

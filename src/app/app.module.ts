@@ -12,8 +12,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { FormsModule } from '@angular/forms';
 import { RegisterFormComponent } from './components/register-form/register-form.component';
-import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { ShipmentFormComponent } from './components/shipment-form/shipment-form.component';
+import {
+  GridModule,
+  PDFModule,
+  ExcelModule,
+} from "@progress/kendo-angular-grid";
+import { ChartsModule } from "@progress/kendo-angular-charts";
+import { InputsModule } from "@progress/kendo-angular-inputs";
+import "hammerjs";
+import { KendoGridComponent } from './components/kendo-grid/kendo-grid.component';
+import { ProfilePage } from './pages/profile/profile.page';
 
 @NgModule({
   declarations: [
@@ -21,11 +31,14 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     LoginPage,
     MainPage,
     RegisterPage,
+    ShipmentFormComponent,
     UserPage,
     AdminPage,
     LoginFormComponent,
     RegisterFormComponent,
     NavBarComponent,
+    KendoGridComponent,
+    ProfilePage,
   
     
   ],
@@ -33,7 +46,11 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    GridModule,
+    ExcelModule,
+    ChartsModule,
+    InputsModule
   ],
   bootstrap: [AppComponent],
   providers: [],
