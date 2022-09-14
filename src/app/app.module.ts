@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppComponent } from './app.component';
 import { LoginPage } from './pages/login/login.page';
 import { MainPage } from './pages/main/main.page';
@@ -24,7 +23,6 @@ import { InputsModule } from "@progress/kendo-angular-inputs";
 import "hammerjs";
 import { KendoGridComponent } from './components/kendo-grid/kendo-grid.component';
 import { ProfilePage } from './pages/profile/profile.page';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,8 +37,6 @@ import { ProfilePage } from './pages/profile/profile.page';
     NavBarComponent,
     KendoGridComponent,
     ProfilePage,
-  
-    
   ],
   imports: [
     BrowserModule,
@@ -54,6 +50,5 @@ import { ProfilePage } from './pages/profile/profile.page';
   ],
   bootstrap: [AppComponent],
   providers: [],
-
 })
 export class AppModule { }

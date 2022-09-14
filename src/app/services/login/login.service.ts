@@ -3,6 +3,7 @@ import { environment } from "src/environments/environment";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { User } from "src/app/models/user.model";
+import axios from "axios";
 
 
 // Variable for getting the Key and Url from the environment file
@@ -54,6 +55,35 @@ export class LoginService {
         return this.http.post<User>(apiUsers, user, {
             headers
         })
+    }
+
+    public createUserAxios(FirstName: string, LastName: string, email: string, password: string, country: string, postalcode: number, phonenumber: number ){
+
+        const user = { FirstName: FirstName,
+
+        LastName: LastName,
+
+        Email: email,
+
+        Password: password,
+
+        Country: country,
+
+        PostalCode: postalcode,
+
+        PhoneNumber: phonenumber,
+
+        DataOfBirth: Date.now(),
+
+        AccountType: 1
+
+    }
+
+
+
+
+axios.post(apiUsers,user).then((response) => console.log(response))
+
     }
 
 

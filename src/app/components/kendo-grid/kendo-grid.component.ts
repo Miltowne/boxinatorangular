@@ -2,14 +2,13 @@ import { Component, Input, OnInit, ViewChild } from "@angular/core";
 import { DataBindingDirective } from "@progress/kendo-angular-grid";
 import { process } from "@progress/kendo-data-query";
 import { Shipment } from "src/app/models/shipment.model";
-import { employees } from "../../models/employees";
 import { images } from "../../models/images";
 
 @Component({
   selector: "app-kendo-grid",
   template: `
     <kendo-grid
-      [kendoGridBinding]="gridView"
+      [kendoGridBinding]="shipments"
       kendoGridSelectBy="id"
       [(selectedKeys)]="mySelection"
       [pageSize]="20"
@@ -63,7 +62,7 @@ import { images } from "../../models/images";
           </ng-template>
         </kendo-grid-column>
         <kendo-grid-column
-          field="is_online"
+          field="shipmentStatus"
           title="Status"
           [width]="100"
           [class]="{ 'text-center': true }"
@@ -72,27 +71,27 @@ import { images } from "../../models/images";
         >
           <ng-template kendoGridCellTemplate let-dataItem>
             <span
-              *ngIf="dataItem.is_online === 0"
+              *ngIf="dataItem.shipmentStatus === 0"
               class="badge badge-success"
               >Created</span
             >
             <span
-              *ngIf="dataItem.is_online === 1"
+              *ngIf="dataItem.shipmentStatus === 1"
               class="badge badge-danger"
               >Recieved</span
             >
             <span
-              *ngIf="dataItem.is_online === 2"
+              *ngIf="dataItem.shipmentStatus === 2"
               class="badge badge-danger"
               >Intransit</span
             >
             <span
-              *ngIf="dataItem.is_online === 3"
+              *ngIf="dataItem.shipmentStatus === 3"
               class="badge badge-danger"
               >Completed</span
             >
             <span
-              *ngIf="dataItem.is_online === 4"
+              *ngIf="dataItem.shipmentStatus === 4"
               class="badge badge-danger"
               >Cancelled</span
             >
@@ -105,19 +104,6 @@ import { images } from "../../models/images";
   `,
   styles: [
     `
-      .customer-photo {
-        display: inline-block;
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        background-size: 32px 35px;
-        background-position: center center;
-        vertical-align: middle;
-        line-height: 32px;
-        box-shadow: inset 0 0 1px #999, inset 0 0 10px rgba(0, 0, 0, 0.2);
-        margin-left: 5px;
-      }
-
       .customer-name {
         display: inline-block;
         vertical-align: middle;
@@ -139,7 +125,7 @@ export class KendoGridComponent implements OnInit {
   @ViewChild(DataBindingDirective) dataBinding: DataBindingDirective | undefined;
   public gridView: unknown[] | undefined;
   @Input() shipments: Shipment[] = [];
-  public gridData: unknown[] = employees;
+  public gridData: unknown[] = this.shipments;
   
   public mySelection: string[] = [];
 
@@ -158,17 +144,8 @@ export class KendoGridComponent implements OnInit {
             field: "recieverName",
             operator: "contains",
             value: inputValue,
-          },
-          {
-            field: "boxColor",
-            operator: "contains",
-            value: inputValue,
-          },
-          {
-            field: "weight",
-            operator: "contains",
-            value: inputValue,
-          },
+          }
+         
         ],
       },
     }).data;
@@ -176,15 +153,10 @@ export class KendoGridComponent implements OnInit {
     this.dataBinding!.skip = 0;
   }
 
-  public photoURL(dataItem: { img_id: string; gender: string }): string {
-    const code: string = dataItem.img_id + dataItem.gender;
-    const image: { [Key: string]: string } = images;
 
-    return image[code];
-  }
 
-  public flagURL(dataItem: { country: string }): string {
-    const code: string = dataItem.country;
+  public flagURL(dataItem: { destination: string }): string {
+    const code: string = dataItem.destination;
     const image: { [Key: string]: string } = images;
 
     return image[code];

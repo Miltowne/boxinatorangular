@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Shipment } from 'src/app/models/shipment.model';
 import { ProfileService } from 'src/app/services/profile.service';
+import { ShipmentService } from 'src/app/services/shipment.service';
 
 @Component({
   selector: 'app-profile',
@@ -10,7 +11,7 @@ import { ProfileService } from 'src/app/services/profile.service';
 export class ProfilePage implements OnInit {
 
   constructor(
-    private readonly service: ProfileService
+    private readonly service: ShipmentService
   ) { }
 
   get shipments(): Shipment[]{
@@ -19,6 +20,7 @@ export class ProfilePage implements OnInit {
 
   ngOnInit(): void {
     this.service.GetAllUserShipments()
+    console.log(this.shipments)
   }
 
 }
