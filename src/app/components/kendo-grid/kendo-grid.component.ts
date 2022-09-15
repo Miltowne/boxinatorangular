@@ -22,47 +22,7 @@ import { Observable } from "rxjs";
       [height]="500"
       [columnMenu]="{ filter: true }"
     >
-      <ng-template kendoGridToolbarTemplate>
-        <input
-          [style.width.px]="165"
-          placeholder="Search in all columns..."
-          kendoTextBox
-          (input)="onFilter($event)"
-        />
-        
-      </ng-template>
-      <kendo-grid-checkbox-column
-        [width]="45"
-        [headerClass]="{ 'text-center': true }"
-        [class]="{ 'text-center': true }"
-        [resizable]="false"
-        [columnMenu]="false"
-        [showSelectAll]="true"
-      ></kendo-grid-checkbox-column>
 
-  <ng-template kendoGridToolbarTemplate>
-    <input
-    [style.width.px]="165"
-    placeholder="Search in all columns..."
-    kendoTextBox
-    (input)="onFilter($event)"
-    />
-    
-  </ng-template>
-  <kendo-grid-checkbox-column
-  [width]="45"
-  [headerClass]="{ 'text-center': true }"
-  [class]="{ 'text-center': true }"
-  [resizable]="false"
-  [columnMenu]="false"
-  [showSelectAll]="true"
-  ></kendo-grid-checkbox-column>
-  
-  
-  
-      
-  
-  
   <kendo-grid-column-group title="Shipments" [columnMenu]="false">
     <kendo-grid-column field="recieverName" title="Reciever Name" [width]="220">
       <ng-template kendoGridCellTemplate let-dataItem>
