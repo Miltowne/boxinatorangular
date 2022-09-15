@@ -3,20 +3,20 @@
         <fieldset class="mb-3">
             <h2>Login</h2>
             <div class="user-box">
-            <label for="username"></label>
+            <label for="email"></label>
             </div>
             <input type="text"
             ngModel
-            #username="ngModel"
-            name="username" id="username"
+            #email="ngModel"
+            name="email" id="email"
             class="border p-2 rounded w-full bg-slate-600"
             required=""
-            placeholder="Enter username here please!">
+            placeholder="Enter email here please!">
         </fieldset>
         <button type="submit" class="bg-slate-600 p-2 rounded">Login</button>
     </form>
     </div>
 
-<div class="text-white" *ngIf="username.errors && (username.touched)"> <p 
-     *ngIf="username.errors['required']" > required please enter a username </p>
-         <p *ngIf="username.errors['minlength']" > too short</p></div>
+<div class="text-white" *ngIf="email.errors && (email.touched)"> <p 
+     *ngIf="email.errors['required']" > required please enter a email </p>
+         <p *ngIf="email.errors['minlength']" > too short</p></div>

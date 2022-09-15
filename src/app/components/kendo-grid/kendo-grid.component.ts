@@ -9,7 +9,7 @@ import { Observable } from "rxjs";
   selector: "app-kendo-grid",
   template: `
     <kendo-grid
-      [kendoGridBinding]="shipments"
+      [kendoGridBinding]="gridData"
       kendoGridSelectBy="id"
       [(selectedKeys)]="mySelection"
       [pageSize]="20"
@@ -125,15 +125,15 @@ import { Observable } from "rxjs";
 export class KendoGridComponent implements OnInit {
   @ViewChild(DataBindingDirective) dataBinding: DataBindingDirective | undefined;
   public gridView: unknown[] | undefined;
-  @Input() shipments: Shipment[] = [];
-  public gridData: unknown[] = this.shipments;
+  @Input() shipments: Observable<Shipment[]> | undefined;
+  public gridData: Shipment[] = [];
   
   public mySelection: string[] = [];
   
   public ngOnInit(): void {
     this.gridView = this.gridData;
-    this.shipments?.subscribe((shipments) => {
-      this.gridData = shipments
+    this.shipments?.subscribe((shipmentsList: Shipment[]) => {
+      this.gridData = shipmentsList
     })
   }
 
