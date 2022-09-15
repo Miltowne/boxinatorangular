@@ -4,6 +4,7 @@ import { process } from "@progress/kendo-data-query";
 import { Shipment } from "src/app/models/shipment.model"; 
 import { employees } from "src/app/models/employees";
 import { images } from "../../models/images";
+import { Observable } from "rxjs";
 
 @Component({
   selector: "app-kendo-grid",
@@ -138,13 +139,16 @@ import { images } from "../../models/images";
 export class KendoGridComponent implements OnInit {
   @ViewChild(DataBindingDirective) dataBinding: DataBindingDirective | undefined;
   public gridView: unknown[] | undefined;
-  @Input() shipments: Shipment[] = [];
-  public gridData: unknown[] = employees;
+  @Input() shipments: Observable<Shipment[]> | undefined;
+  public gridData: unknown[] | undefined;
   
   public mySelection: string[] = [];
-
+  
   public ngOnInit(): void {
     this.gridView = this.gridData;
+    this.shipments?.subscribe((shipments) => {
+      this.gridData = shipments
+    })
   }
 
   public onFilter(input: Event): void {

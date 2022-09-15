@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Select, Store } from '@ngxs/store';
+import { Observable } from 'rxjs';
 import { ShipmentService } from 'src/app/services/shipment.service';
 
 @Component({
@@ -7,12 +9,23 @@ import { ShipmentService } from 'src/app/services/shipment.service';
   styleUrls: ['./main.page.css']
 })
 export class MainPage implements OnInit {
+  public loggedIn: boolean = false;
+  // @Select() app$: any | undefined;
 
   constructor(
-    private readonly shipmentService: ShipmentService
-  ) { }
+    private readonly shipmentService: ShipmentService,
+    // private store: Store
+  ) 
+  { 
+  }
 
-  public loggedIn: boolean = false;
+  // clickHandler(username: any | undefined){
+  //   this.store.dispatch([
+  //     new SetUsername(username),
+  //     new Navigate('/profile')
+  //   ])
+  // }
+
 
   public makeLoggedIn(){
     if(this.loggedIn){

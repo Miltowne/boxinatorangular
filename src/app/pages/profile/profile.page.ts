@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Shipment } from 'src/app/models/shipment.model';
 import { ProfileService } from 'src/app/services/profile.service';
 
@@ -13,12 +14,15 @@ export class ProfilePage implements OnInit {
     private readonly service: ProfileService
   ) { }
 
-  get shipments(): Shipment[]{
-    return this.service.shipments
-  }
+  public shipments$: Observable<Shipment[]> | undefined;
+  // get shipments(): Shipment[]{
+  //   return this.service.shipments
+  // }
 
   ngOnInit(): void {
-    this.service.GetAllUserShipments()
+    this.shipments$ = this.service.GetAllUserShipments();
+
+    this.service.init();
   }
 
 }
