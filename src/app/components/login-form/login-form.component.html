@@ -1,22 +1,27 @@
-<div class="login-box">
-    <form #loginForm="ngForm" (ngSubmit)="loginSubmit(loginForm)">
-        <fieldset class="mb-3">
+
+<body class="color-theme-yellow h-screen"> 
+    <div ng-app = "myApp" class = "container" style="width:550px">
+        <div class="login-box">
+            <form #loginForm="ngForm" (ngSubmit)="loginSubmit(loginForm)">
+                <fieldset class="mb-5">
             <h2>Login</h2>
             <div class="user-box">
-            <label for="username"></label>
+                <label for="username"></label>
             </div>
             <input type="text"
             ngModel
             #username="ngModel"
             name="username" id="username"
-            class="border p-2 rounded w-full bg-slate-600"
+            class="border p-2 rounded w-full"
             required=""
             placeholder="Enter username here please!">
         </fieldset>
-        <button type="submit" class="bg-slate-600 p-2 rounded">Login</button>
+        <button type="submit" class="btn btn-primary">Login</button>
     </form>
+</div> 
     </div>
 
 <div class="text-white" *ngIf="username.errors && (username.touched)"> <p 
-     *ngIf="username.errors['required']" > required please enter a username </p>
-         <p *ngIf="username.errors['minlength']" > too short</p></div>
+    *ngIf="username.errors['required']" > required please enter a username </p>
+    <p *ngIf="username.errors['minlength']" > too short</p></div>
+</body>
