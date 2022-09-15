@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+// import { Component, OnInit } from '@angular/core';
 
-@Component({
-  selector: 'app-profile-shipments',
-  templateUrl: './profile-shipments.component.html',
-  styleUrls: ['./profile-shipments.component.css']
-})
-export class ProfileShipmentsComponent implements OnInit {
+// @Component({
+//   selector: 'app-profile-shipments',
+//   // templateUrl: './profile-shipments.component.html',
+//   styleUrls: ['./profile-shipments.component.css']
+// })
+// export class ProfileShipmentsComponent implements OnInit {
 
-  constructor() { }
+//   constructor() { }
 
-  ngOnInit(): void {
-  }
+//   ngOnInit(): void {
+//   }
   
-}
+// }

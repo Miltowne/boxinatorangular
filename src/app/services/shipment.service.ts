@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import axios from 'axios';
-import { Shipment } from '../models/shipment.model';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { Shipment, ShipmentCreate } from '../models/shipment.model';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -10,36 +12,24 @@ export class ShipmentService {
     private readonly http: HttpClient
   ) { }
   public _loggedIn: boolean = false;
-  
-  // get loggedIn(): boolean{
-  //   return this._loggedIn
-  // }
-  // set loggedIn(value: boolean): boolean{
-  //   this._loggedIn = value
-  // }
-  private _shipments: Shipment[] = [];
+  private _shipments = new BehaviorSubject< Shipment[]>([]);
 
-  get shipments(): Shipment[]{
-  return this._shipments
+
+  public init(): void{
+    this.http.get<Shipment[]>("https://boxinatorboxboysapi.azurewebsites.net/api/v1/shipments")
+    .subscribe((shipments) => {
+      this._shipments.next(shipments);
+    })
 }
 
-public GetAllUserShipments(){
-  this.http.get<Shipment[]>("https://boxinatorboxboysapi.azurewebsites.net/api/v1/shipments")
-  .subscribe({
-    next: (shipmentList: Shipment[]) => {
-      shipmentList.forEach(element => {
-        console.log(element)
-        if(!this._shipments.includes(element)){
-
-          this._shipments.push(element)
-        }
-      });
+  public GetAllUserShipments(): Observable<Shipment[]>{
+    return this._shipments
     }
-  })
-}
-  // public GetAllShipments(){
-  //   axios.get("https://boxinatorboxboysapi.azurewebsites.net/api/v1/shipments")
-  //   .then((response)=> this._shipments = response.data)
-    
-  // }
+
+  public CreateNewShipment(shipment: ShipmentCreate){
+    axios.post("https://boxinatorboxboysapi.azurewebsites.net/api/v1/shipments", shipment)
+    .then((response) => 
+      console.log(response.data)
+    )
+  }
 }

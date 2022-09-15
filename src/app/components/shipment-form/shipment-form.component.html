@@ -14,10 +14,9 @@
         <label for="country" class="block">Country</label>
         <input type="text" 
         ngModel
-        #country="ngModel"
+        #destination="ngModel"
         required="This field is required"
-        minlength="3"
-        name="country" id="country"
+        name="destination" id="destination"
         class="border border-slate-300 p-2 rounded 2-full" 
         placeholder="Sweden">
 
@@ -26,15 +25,11 @@
         ngModel
         #Weight="ngModel"
         required="This field is required"
-        minlength="3"
-        name="Weight" id="Weight"
+        name="weight" id="weight"
         class="border border-slate-300 p-2 rounded 2-full" 
         placeholder="5" >
         
         <label for="boxColor" class="block">Box Color</label>
-    </div>
-        
-        
         <input type="text" 
         ngModel
         #boxColor="ngModel"
@@ -43,6 +38,7 @@
         name="boxColor" id="boxColor"
         class="border border-slate-300 p-2 rounded 2-full" 
         placeholder="color" >
+        
     </fieldset>
     <button   
     [disabled]="shipmentForm.form.invalid"

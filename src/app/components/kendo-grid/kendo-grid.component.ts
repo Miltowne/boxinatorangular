@@ -3,10 +3,41 @@ import { DataBindingDirective } from "@progress/kendo-angular-grid";
 import { process } from "@progress/kendo-data-query";
 import { Shipment } from "src/app/models/shipment.model";
 import { images } from "../../models/images";
+import { Observable } from "rxjs";
 
 @Component({
   selector: "app-kendo-grid",
   template: `
+    <kendo-grid
+      [kendoGridBinding]="gridData"
+      kendoGridSelectBy="id"
+      [(selectedKeys)]="mySelection"
+      [pageSize]="20"
+      [pageable]="true"
+      [sortable]="true"
+      [groupable]="true"
+      [reorderable]="true"
+      [resizable]="true"
+      [height]="500"
+      [columnMenu]="{ filter: true }"
+    >
+      <ng-template kendoGridToolbarTemplate>
+        <input
+          [style.width.px]="165"
+          placeholder="Search in all columns..."
+          kendoTextBox
+          (input)="onFilter($event)"
+        />
+        
+      </ng-template>
+      <kendo-grid-checkbox-column
+        [width]="45"
+        [headerClass]="{ 'text-center': true }"
+        [class]="{ 'text-center': true }"
+        [resizable]="false"
+        [columnMenu]="false"
+        [showSelectAll]="true"
+      ></kendo-grid-checkbox-column>
 
 <div class="color-theme-yellow">
   
@@ -132,13 +163,16 @@ styles: [
 export class KendoGridComponent implements OnInit {
   @ViewChild(DataBindingDirective) dataBinding: DataBindingDirective | undefined;
   public gridView: unknown[] | undefined;
-  @Input() shipments: Shipment[] = [];
-  public gridData: unknown[] = this.shipments;
+  @Input() shipments: Observable<Shipment[]> | undefined;
+  public gridData: Shipment[] = [];
   
   public mySelection: string[] = [];
-
+  
   public ngOnInit(): void {
     this.gridView = this.gridData;
+    this.shipments?.subscribe((shipmentsList: Shipment[]) => {
+      this.gridData = shipmentsList
+    })
   }
 
   public onFilter(input: Event): void {

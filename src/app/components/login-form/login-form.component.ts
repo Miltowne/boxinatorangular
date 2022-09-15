@@ -24,18 +24,10 @@ export class LoginFormComponent {
 
   public loginSubmit(loginForm: NgForm): void{
     // Username
-    const { username } = loginForm.value;
+    const { email } = loginForm.value;
 
-    this.loginService.login(username)
-    .subscribe({
-      next: (user: User) => {
-        // Redirects to the main page
-        this.userService.user = user;
-        this.login.emit();
-      },
-    })
+    this.loginService.login(email);
+    this.login.emit();
     console.log("you have now logged in")
   }
-  
-
 }
