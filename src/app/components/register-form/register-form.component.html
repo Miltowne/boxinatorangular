@@ -1,5 +1,7 @@
 <body class="color-theme-yellow h-screen">
   <div ng-app="myApp" class="container" style="width: 550px">
+  <div class="register-box">
+
     <div style="text-align: center">
       <h3><b>User Registraion</b></h3>
     </div>
@@ -12,7 +14,7 @@
         #registerForm="ngForm"
         (ngSubmit)="registerSubmit(registerForm)"
       >
-        <div class="form-group">
+      <div class="form-group">
           <label for="firstname"> First Name: </label>
           <input
           ngModel
@@ -87,46 +89,47 @@
         <div class="form-group">
           <label for="postalcode"> Postal Code: </label>
           <input
-            ngModel
-            #postalcode
-            name="postalcode"
-            type="text"
-            id="postalcode"
-            class="form-control"
-            placeholder="Enter Postal Code"
+          ngModel
+          #postalcode
+          name="postalcode"
+          type="text"
+          id="postalcode"
+          class="form-control"
+          placeholder="Enter Postal Code"
           />
         </div>
         <div class="form-group">
           <label for="phone"> Phone: </label>
           <input
-            ngModel
-            #phone
-            name="phone"
-            type="text"
-            id="phone"
+          ngModel
+          #phone
+          name="phone"
+          type="text"
+          id="phone"
             class="form-control"
             placeholder="Enter Phone "
-          />
-        </div>
+            />
+          </div>
         <!-- <div class="form-group">
           <label for="name"> Date Of Birth: </label>
           <input
-            type="text"
-            id="dateofbirth"
-            class="form-control"
-            placeholder="Enter Date Of Birth"
-            ng-model="newuser.dateofbirth"
+          type="text"
+          id="dateofbirth"
+          class="form-control"
+          placeholder="Enter Date Of Birth"
+          ng-model="newuser.dateofbirth"
           />
         </div> -->
         <br />
         <input type="hidden" ng-model="newuser.id" />
         <input
-          type="submit"
-          class="btn btn-primary"
-          class="btn btn-primary"
+        type="submit"
+        class="btn btn-primary"
+        class="btn btn-primary"
           value="Submit"
-        />
+          />
       </form>
     </div>
   </div>
+</div>
 </body>
