@@ -8,6 +8,7 @@ import { Observable } from "rxjs";
 @Component({
   selector: "app-kendo-grid",
   template: `
+  <div class="color-theme-yellow">
     <kendo-grid
       [kendoGridBinding]="gridData"
       kendoGridSelectBy="id"
@@ -39,21 +40,6 @@ import { Observable } from "rxjs";
         [showSelectAll]="true"
       ></kendo-grid-checkbox-column>
 
-<div class="color-theme-yellow">
-  
-  <kendo-grid
-  [kendoGridBinding]="shipments"
-  kendoGridSelectBy="id"
-  [(selectedKeys)]="mySelection"
-  [pageSize]="20"
-  [pageable]="true"
-  [sortable]="true"
-  [groupable]="true"
-  [reorderable]="true"
-  [resizable]="true"
-  [height]="500"
-  [columnMenu]="{ filter: true }"
-  >
   <ng-template kendoGridToolbarTemplate>
     <input
     [style.width.px]="165"
