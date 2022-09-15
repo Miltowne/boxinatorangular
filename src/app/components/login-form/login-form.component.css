@@ -9,12 +9,13 @@
     width: 450px;
     padding: 40px;
     transform: translate(-50%, -50%);
-    background: rgba(103, 95, 95, 0.5);
+    background: #ffffffe0;
+
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
     border-radius: 10px;
   }
-  
+
   .login-box h2 {
     margin: 0 0 30px;
     padding: 0;
@@ -50,7 +51,7 @@
 
 
   
-  
+/*   
   .login-box form button {
     position: relative;
     display: inline-block;
@@ -61,7 +62,7 @@
     overflow: hidden;
     margin-top: 40px;
     letter-spacing: 4px;
-  }
+  } */
   
   button {
     border: none;

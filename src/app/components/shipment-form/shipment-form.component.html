@@ -1,15 +1,17 @@
-<form  #shipmentForm="ngForm" class="grid place-items-center" (ngSubmit)="shipmentSubmit(shipmentForm)">
-    <fieldset class="mb-3 p-5 bg-white border rounded">
-        <label for="receiverName" class="block">Receiver Name</label>
-        <input type="text" 
-        ngModel
-        #receiverName="ngModel"
-        required="This field is required"
-        minlength="3"
-        name="receiverName" id="receiverName"
-        class="border border-slate-300 p-2 rounded 2-full" 
-        placeholder="Bruce Lee">
-        <label for="destination" class="block">Destination</label>
+
+    <form  #shipmentForm="ngForm" class="grid place-items-center" (ngSubmit)="shipmentSubmit(shipmentForm)">
+        <fieldset class="mb-3 p-5 bg-white border rounded">
+            <div class="shipment-box">
+                <label for="receiverName" class="block">Receiver Name</label>
+                <input type="text" 
+                ngModel
+                #receiverName="ngModel"
+                required="This field is required"
+                minlength="3"
+                name="receiverName" id="receiverName"
+                class="border border-slate-300 p-2 rounded 2-full" 
+                placeholder="Bruce Lee">
+        <label for="country" class="block">Country</label>
         <input type="text" 
         ngModel
         #destination="ngModel"
@@ -26,7 +28,7 @@
         name="weight" id="weight"
         class="border border-slate-300 p-2 rounded 2-full" 
         placeholder="5" >
-
+        
         <label for="boxColor" class="block">Box Color</label>
         <input type="text" 
         ngModel
@@ -40,5 +42,5 @@
     </fieldset>
     <button   
     [disabled]="shipmentForm.form.invalid"
-     type="submit" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Send Shipment</button>
+    type="submit" class="btn btn-primary">Send Shipment</button>
 </form>
