@@ -4,6 +4,13 @@ export interface Shipment {
     Weight: number;
     Destination: string;
     BoxColor: string;
-    ShipmentStatus: number;
+        // public ShipmentStatus ShipmentStatus { get; set; }
+}
 
+export interface ShipmentCreate {
+    RecieverName: string;
+    Weight: number;
+    Destination: string;
+    BoxColor: string;
+    ShipmentStatus: number;
 }

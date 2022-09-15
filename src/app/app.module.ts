@@ -23,6 +23,15 @@ import { InputsModule } from "@progress/kendo-angular-inputs";
 import "hammerjs";
 import { KendoGridComponent } from './components/kendo-grid/kendo-grid.component';
 import { ProfilePage } from './pages/profile/profile.page';
+import { ShipmentFormGuestuserComponent } from './components/shipment-form-guestuser/shipment-form-guestuser.component';
+
+import { NgxsModule } from '@ngxs/store';
+import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+import { environment } from 'src/environments/environment';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +46,9 @@ import { ProfilePage } from './pages/profile/profile.page';
     NavBarComponent,
     KendoGridComponent,
     ProfilePage,
+    ShipmentFormGuestuserComponent,
+  
+    
   ],
   imports: [
     BrowserModule,
@@ -46,7 +58,7 @@ import { ProfilePage } from './pages/profile/profile.page';
     GridModule,
     ExcelModule,
     ChartsModule,
-    InputsModule
+    InputsModule,
   ],
   bootstrap: [AppComponent],
   providers: [],

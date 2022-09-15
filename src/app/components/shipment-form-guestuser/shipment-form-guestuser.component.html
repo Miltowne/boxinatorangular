@@ -36,7 +36,19 @@
         name="boxColor" id="boxColor"
         class="border border-slate-300 p-2 rounded 2-full" 
         placeholder="color" >
-        
+
+
+
+           <label for="email" class="block">Email</label>
+           <input type="text" 
+           ngModel
+           #email="ngModel"
+           required="This field is required"
+           name="email" id="email"
+           class="border border-slate-300 p-2 rounded 2-full" 
+           placeholder="example@example.com" >
+
+
     </fieldset>
     <button   
     [disabled]="shipmentForm.form.invalid"

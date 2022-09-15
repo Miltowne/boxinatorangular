@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ShipmentService } from 'src/app/services/shipment.service';
+import { Shipment, ShipmentCreate } from 'src/app/models/shipment.model';
 
 @Component({
   selector: 'app-shipment-form',
@@ -15,28 +16,13 @@ export class ShipmentFormComponent implements OnInit {
   public loggedIn: boolean = this.shipmentService._loggedIn;
   ngOnInit(): void {
   }
-
+  
   
 
   public shipmentSubmit(shipmentForm: NgForm): void{
-    const {RecieverName} = shipmentForm.value
-    const {Weight} = shipmentForm.value
-    const {Destination} = shipmentForm.value
-    const {BoxColor} = shipmentForm.value
-
-
-    // ShipmentId: number;
-    // RecieverName: string;
-    // Weight: number;
-    // Destination: string;
-    // BoxColor: string;
-
-    
-
-
-
-
-    console.log(shipmentForm);
+    const {receiverName, weight, destination, boxColor} = shipmentForm.value
+    let shipment: ShipmentCreate = {RecieverName: receiverName, Weight: weight, Destination: destination, BoxColor: boxColor, ShipmentStatus: 0}
+    console.log(receiverName, weight, destination, boxColor);
+    this.shipmentService.CreateNewShipment(shipment)
   }
-
 }

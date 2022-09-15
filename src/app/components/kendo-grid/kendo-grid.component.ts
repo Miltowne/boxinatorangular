@@ -3,6 +3,7 @@ import { DataBindingDirective } from "@progress/kendo-angular-grid";
 import { process } from "@progress/kendo-data-query";
 import { Shipment } from "src/app/models/shipment.model";
 import { images } from "../../models/images";
+import { Observable } from "rxjs";
 
 @Component({
   selector: "app-kendo-grid",
@@ -128,9 +129,12 @@ export class KendoGridComponent implements OnInit {
   public gridData: unknown[] = this.shipments;
   
   public mySelection: string[] = [];
-
+  
   public ngOnInit(): void {
     this.gridView = this.gridData;
+    this.shipments?.subscribe((shipments) => {
+      this.gridData = shipments
+    })
   }
 
   public onFilter(input: Event): void {
