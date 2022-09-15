@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import axios from 'axios';
 import { Shipment, ShipmentCreate } from '../models/shipment.model';
@@ -6,9 +7,9 @@ import { Shipment, ShipmentCreate } from '../models/shipment.model';
   providedIn: 'root'
 })
 export class ShipmentService {
-
-  constructor() { }
-
+  constructor(
+    private readonly http: HttpClient
+  ) { }
   public _loggedIn: boolean = false;
   private _shipments: Shipment[] = [];
 

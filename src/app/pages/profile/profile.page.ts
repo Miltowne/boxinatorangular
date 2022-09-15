@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Shipment } from 'src/app/models/shipment.model';
 import { ProfileService } from 'src/app/services/profile.service';
+import { ShipmentService } from 'src/app/services/shipment.service';
 
 @Component({
   selector: 'app-profile',
@@ -11,7 +12,7 @@ import { ProfileService } from 'src/app/services/profile.service';
 export class ProfilePage implements OnInit {
 
   constructor(
-    private readonly service: ProfileService
+    private readonly service: ShipmentService
   ) { }
 
   public shipments$: Observable<Shipment[]> | undefined;

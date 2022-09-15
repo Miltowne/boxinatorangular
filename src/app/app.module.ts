@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppComponent } from './app.component';
 import { LoginPage } from './pages/login/login.page';
 import { MainPage } from './pages/main/main.page';
@@ -63,6 +62,5 @@ import { environment } from 'src/environments/environment';
   ],
   bootstrap: [AppComponent],
   providers: [],
-
 })
 export class AppModule { }

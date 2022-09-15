@@ -82,5 +82,34 @@ export class LoginService {
 axios.post(apiUsers,user).then((response) => console.log(response))
     }
 
+    public createUserAxios(FirstName: string, LastName: string, email: string, password: string, country: string, postalcode: number, phonenumber: number ){
+
+        const user = { FirstName: FirstName,
+
+        LastName: LastName,
+
+        Email: email,
+
+        Password: password,
+
+        Country: country,
+
+        PostalCode: postalcode,
+
+        PhoneNumber: phonenumber,
+
+        DataOfBirth: Date.now(),
+
+        AccountType: 1
+
+    }
+
+
+
+
+axios.post(apiUsers,user).then((response) => console.log(response))
+
+    }
+
 
 }
