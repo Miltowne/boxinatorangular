@@ -4,23 +4,22 @@
 <div class="grid place-items-center">
   <div class="shipment-box">
 
-    <button type="button" (click)="makeLoggedIn()" class="btn btn-primary">New Shipment</button>
-  </div>
+    
+    <ng-container
+    *ngIf="loggedIn; then loggedIn; else notLoggedIn">
+  </ng-container>
   
-  <ng-container
-  *ngIf="loggedIn; then loggedIn; else notLoggedIn">
-</ng-container>
-
-<ng-template #loggedIn>
-  <!-- <div>
-    Welcome back, {{user.username}}.
-  </div> -->
-  <app-shipment-form ></app-shipment-form>
-  
-</ng-template>
-<ng-template #notLoggedIn>
-  <app-shipment-form-guestuser></app-shipment-form-guestuser>
-</ng-template>
+  <ng-template #loggedIn class="grid place-items-center">
+    <!-- <div>
+      Welcome back, {{user.username}}.
+    </div> -->
+    <app-shipment-form ></app-shipment-form>
+    
+  </ng-template>
+  <ng-template #notLoggedIn class="grid place-items-center">
+    <app-shipment-form-guestuser></app-shipment-form-guestuser>
+  </ng-template>
+</div>
 </div>
 
 
