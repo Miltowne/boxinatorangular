@@ -1,7 +1,9 @@
 
     <form  #shipmentForm="ngForm" class="grid place-items-center" (ngSubmit)="shipmentSubmit(shipmentForm)">
         <fieldset class="mb-3 p-5 bg-white border rounded">
-            < class="shipment-box">
+            <div class="shipment-box">
+
+                
                 <label for="receiverName" class="block">Receiver Name</label>
                 <input type="text" 
                 ngModel
@@ -11,12 +13,12 @@
                 name="receiverName" id="receiverName"
                 class="border border-slate-300 p-2 rounded 2-full" 
                 placeholder="Bruce Lee">
-        <label for="country" class="block">Country</label>
-        <input type="text" 
-        ngModel
-        #destination="ngModel"
-        required="This field is required"
-        name="destination" id="destination"
+                <label for="country" class="block">Country</label>
+                <input type="text" 
+                ngModel
+                #destination="ngModel"
+                required="This field is required"
+                name="destination" id="destination"
         class="border border-slate-300 p-2 rounded 2-full" 
         placeholder="Sweden">
 
@@ -38,8 +40,9 @@
         name="boxColor" id="boxColor"
         class="border border-slate-300 p-2 rounded 2-full" 
         placeholder="color" >
+    </div> 
         
-        </fieldset>
+    </fieldset>
     <button   
     [disabled]="shipmentForm.form.invalid"
     type="submit" class="btn btn-primary">Send Shipment</button>

@@ -10,7 +10,6 @@
   <ng-container
   *ngIf="loggedIn; then loggedIn; else notLoggedIn">
 </ng-container>
-</div>
 
 <ng-template #loggedIn>
   <!-- <div>
@@ -22,6 +21,7 @@
 <ng-template #notLoggedIn>
   <app-shipment-form-guestuser></app-shipment-form-guestuser>
 </ng-template>
+</div>
 
 
 
