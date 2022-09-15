@@ -25,10 +25,6 @@ import { KendoGridComponent } from './components/kendo-grid/kendo-grid.component
 import { ProfilePage } from './pages/profile/profile.page';
 import { ShipmentFormGuestuserComponent } from './components/shipment-form-guestuser/shipment-form-guestuser.component';
 
-import { NgxsModule } from '@ngxs/store';
-import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
-import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
-import { environment } from 'src/environments/environment';
 
 
 
