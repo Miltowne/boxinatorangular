@@ -33,8 +33,15 @@ export class ShipmentService {
     return this._shipments
     }
 
-  public CreateNewShipment(shipment: ShipmentCreate | ShipmentCreateGuest){
+  public CreateNewShipment(shipment: ShipmentCreate){
     axios.post("https://boxinatorboxboysapi.azurewebsites.net/api/v1/shipments", shipment)
+    .then((response) => 
+      console.log(response.data)
+    )
+  }
+
+  public CreateNewGuestUserShipment(shipment: ShipmentCreateGuest){
+    axios.post("https://boxinatorboxboysapi.azurewebsites.net/api/v1/shipments/guestuser", shipment)
     .then((response) => 
       console.log(response.data)
     )

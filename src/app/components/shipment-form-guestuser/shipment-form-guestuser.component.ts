@@ -23,9 +23,9 @@ export class ShipmentFormGuestuserComponent implements OnInit {
 
   public shipmentSubmit(shipmentForm: NgForm): void{
     const {receiverName, weight, destination, boxColor, email} = shipmentForm.value
-    let shipment: ShipmentCreate = {RecieverName: receiverName, Weight: weight, Destination: destination, BoxColor: boxColor, ShipmentStatus: 0, UserId: 1}
+    let shipment: ShipmentCreateGuest = {RecieverName: receiverName, Weight: weight, Destination: destination, BoxColor: boxColor, ShipmentStatus: 0, GuestUserId: 1}
     console.log(receiverName, weight, destination, boxColor);
-    this.shipmentService.CreateNewShipment(shipment)
+    this.shipmentService.CreateNewGuestUserShipment(shipment)
     let guestUser: GuestUser = {Email: email}
     this.guestUserService.CreateGuestUser(guestUser)
   }

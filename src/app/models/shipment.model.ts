@@ -22,5 +22,5 @@ export interface ShipmentCreateGuest {
     Destination: string;
     BoxColor: string;
     ShipmentStatus: number;
-    guestUserId: number;
+    GuestUserId: number;
 }
