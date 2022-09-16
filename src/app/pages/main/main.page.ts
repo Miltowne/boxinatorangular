@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Select, Store } from '@ngxs/store';
-import { Observable } from 'rxjs';
+import { Component } from '@angular/core';
 import { ShipmentService } from 'src/app/services/shipment.service';
 
 @Component({
@@ -8,7 +6,7 @@ import { ShipmentService } from 'src/app/services/shipment.service';
   templateUrl: './main.page.html',
   styleUrls: ['./main.page.css']
 })
-export class MainPage implements OnInit {
+export class MainPage {
   public loggedIn: boolean = false;
   // @Select() app$: any | undefined;
 
@@ -28,7 +26,7 @@ export class MainPage implements OnInit {
 
 
   public makeLoggedIn(){
-    if(this.loggedIn){
+    /* if(this.loggedIn){
       this.loggedIn = false
     console.log("making it false")
 
@@ -37,12 +35,21 @@ export class MainPage implements OnInit {
       this.loggedIn = true
     console.log("making it true")
 
-    }
+    } */
   }
-
   
-
+  
+  
   ngOnInit(): void {
+    if (sessionStorage.getItem("mysterybox-user") === null)
+        {
+          this.loggedIn = false
+        }
+        else
+        {
+          this.loggedIn = true
+        }
   }
+  
 
 }
