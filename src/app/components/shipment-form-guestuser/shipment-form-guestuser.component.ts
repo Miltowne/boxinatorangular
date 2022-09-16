@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { GuestUser } from 'src/app/models/guestuser.model';
-import { ShipmentCreate } from 'src/app/models/shipment.model';
+import { ShipmentCreate, ShipmentCreateGuest } from 'src/app/models/shipment.model';
 import { GuestuserService } from 'src/app/services/guestuser.service';
 import { ShipmentService } from 'src/app/services/shipment.service';
 
@@ -23,7 +23,7 @@ export class ShipmentFormGuestuserComponent implements OnInit {
 
   public shipmentSubmit(shipmentForm: NgForm): void{
     const {receiverName, weight, destination, boxColor, email} = shipmentForm.value
-    let shipment: ShipmentCreate = {RecieverName: receiverName, Weight: weight, Destination: destination, BoxColor: boxColor, ShipmentStatus: 0}
+    let shipment: ShipmentCreate = {RecieverName: receiverName, Weight: weight, Destination: destination, BoxColor: boxColor, ShipmentStatus: 0, UserId: 1}
     console.log(receiverName, weight, destination, boxColor);
     this.shipmentService.CreateNewShipment(shipment)
     let guestUser: GuestUser = {Email: email}

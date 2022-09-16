@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login/login.service';
 
 @Component({
@@ -10,7 +11,8 @@ import { LoginService } from 'src/app/services/login/login.service';
 export class RegisterFormComponent implements OnInit {
 
   constructor(
-    private readonly service: LoginService
+    private readonly service: LoginService,
+    private readonly router: Router
   ) { }
 
   ngOnInit(): void {
@@ -21,6 +23,7 @@ export class RegisterFormComponent implements OnInit {
 
     this.service.createUserAxios(firstname, lastname, email, password, country, postalcode, phonenumber)
 
+    this.router.navigateByUrl("/main")
     console.log(firstname)
     console.log(lastname)
     

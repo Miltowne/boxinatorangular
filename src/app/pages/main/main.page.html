@@ -19,7 +19,16 @@
     <app-shipment-form-guestuser></app-shipment-form-guestuser>
   </ng-template>
 </div>
+
+<div
+  *ngIf="loggedIn; else notLoggedIn">
+
+  <app-shipment-form ></app-shipment-form>
 </div>
+
+<ng-template #notLoggedIn>
+  <app-shipment-form-guestuser></app-shipment-form-guestuser>
+</ng-template>
 
 
 

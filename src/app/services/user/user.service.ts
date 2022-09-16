@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import axios from "axios";
 import { StorageKeys } from "src/app/enums/storage-keys.enum";
 import { User } from "src/app/models/user.model";
 import { StorageUtil } from "src/app/utils/storage.util";
@@ -25,5 +26,10 @@ export class UserService {
     constructor() {
         this._user = StorageUtil.storageRead<User>(StorageKeys.User);
     }
+
+    public GetAllUsers(){
+        axios.get("https://boxinatorboxboysapi.azurewebsites.net/api/v1/users").then((data) => console.log(data.data))
+    }
+    
 
 }
