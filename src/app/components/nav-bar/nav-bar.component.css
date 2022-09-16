@@ -1,0 +1,16 @@
+.navbar{
+    margin-bottom: 0px;
+    padding: 7px;
+    border-radius: 0;
+    
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    
+}
+
+:hover{
+    color: yellow;
+}

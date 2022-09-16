@@ -7,7 +7,7 @@ import { ShipmentService } from 'src/app/services/shipment.service';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.page.html',
-  styleUrls: ['./profile.page.css']
+  // styleUrls: ['./profile.page.css']
 })
 export class ProfilePage implements OnInit {
 
