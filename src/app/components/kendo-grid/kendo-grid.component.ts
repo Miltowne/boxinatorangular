@@ -7,9 +7,10 @@ import { Observable } from "rxjs";
 import { UserService } from "src/app/services/user/user.service";
 
 @Component({
+  styleUrls: ['./kendo-grid.css'],
   selector: "app-kendo-grid",
   template: `
-  <div class="color-theme-yellow">
+  
     <kendo-grid
       [kendoGridBinding]="gridData"
       kendoGridSelectBy="id"
@@ -17,13 +18,16 @@ import { UserService } from "src/app/services/user/user.service";
       [pageSize]="20"
       [pageable]="true"
       [sortable]="true"
-      [groupable]="true"
+      [groupable]="false"
       [reorderable]="true"
       [resizable]="true"
       [height]="500"
-      [columnMenu]="{ filter: true }"
+      [columnMenu]="{ filter: false }"
     >
 
+    
+
+    
   <kendo-grid-column-group title="Shipments" [columnMenu]="false">
     <kendo-grid-column field="recieverName" title="Reciever Name" [width]="220">
       <ng-template kendoGridCellTemplate let-dataItem>
@@ -31,7 +35,6 @@ import { UserService } from "src/app/services/user/user.service";
       </ng-template>
     </kendo-grid-column>
     <kendo-grid-column field="boxColor" title="Box Color" [width]="220">
-      
       </kendo-grid-column>
       <kendo-grid-column
       field="country"
@@ -83,29 +86,14 @@ import { UserService } from "src/app/services/user/user.service";
   <kendo-grid-column field="weight" title="Weight" [width]="130">
     </kendo-grid-column>
   </kendo-grid-column-group>
-  
 </kendo-grid>
-</div>
-`,
-styles: [
-  
-    `
-      .customer-name {
-        display: inline-block;
-        vertical-align: middle;
-        line-height: 32px;
-        padding-left: 10px;
-      }
 
-      .red {
-        color: #d9534f;
-      }
+`
 
-      .text-bold {
-        font-weight: 600;
-      }
-    `,
-  ],
+
+
+    
+
 })
 export class KendoGridComponent implements OnInit {
   constructor(
@@ -115,19 +103,15 @@ export class KendoGridComponent implements OnInit {
   public gridView: unknown[] | undefined;
   @Input() shipments: Observable<Shipment[]> | undefined;
   public gridData: Shipment[] = [];
-  
   public mySelection: string[] = [];
-  
   public ngOnInit(): void {
     this.gridView = this.gridData;
     this.shipments?.subscribe((shipmentsList: Shipment[]) => {
       this.gridData = shipmentsList
     })
   }
-
   public onFilter(input: Event): void {
     const inputValue = (input.target as HTMLInputElement).value;
-
     this.gridView = process(this.gridData, {
       filter: {
         logic: "or",
@@ -137,21 +121,14 @@ export class KendoGridComponent implements OnInit {
             operator: "contains",
             value: inputValue,
           }
-         
         ],
       },
     }).data;
-
     this.dataBinding!.skip = 0;
   }
-
-
-
   public flagURL(dataItem: { destination: string }): string {
     const code: string = dataItem.destination;
     const image: { [Key: string]: string } = images;
-
     return image[code];
   }
- 
 }
