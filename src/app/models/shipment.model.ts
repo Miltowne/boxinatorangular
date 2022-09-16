@@ -13,4 +13,14 @@ export interface ShipmentCreate {
     Destination: string;
     BoxColor: string;
     ShipmentStatus: number;
+    UserId: number;
+}
+
+export interface ShipmentCreateGuest {
+    RecieverName: string;
+    Weight: number;
+    Destination: string;
+    BoxColor: string;
+    ShipmentStatus: number;
+    guestUserId: number;
 }

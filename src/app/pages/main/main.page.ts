@@ -29,7 +29,6 @@ export class MainPage {
     /* if(this.loggedIn){
       this.loggedIn = false
     console.log("making it false")
-
     }
     else{
       this.loggedIn = true
