@@ -31,17 +31,12 @@ export class MainPage implements OnInit {
     if(this.loggedIn){
       this.loggedIn = false
     console.log("making it false")
-
     }
     else{
       this.loggedIn = true
     console.log("making it true")
-
     }
   }
-
-  
-
   ngOnInit(): void {
   }
 

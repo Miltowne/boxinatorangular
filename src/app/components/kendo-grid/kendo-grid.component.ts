@@ -4,6 +4,7 @@ import { process } from "@progress/kendo-data-query";
 import { Shipment } from "src/app/models/shipment.model";
 import { images } from "../../models/images";
 import { Observable } from "rxjs";
+import { UserService } from "src/app/services/user/user.service";
 
 @Component({
   selector: "app-kendo-grid",
@@ -107,6 +108,9 @@ styles: [
   ],
 })
 export class KendoGridComponent implements OnInit {
+  constructor(
+    private readonly userService: UserService
+  ){}
   @ViewChild(DataBindingDirective) dataBinding: DataBindingDirective | undefined;
   public gridView: unknown[] | undefined;
   @Input() shipments: Observable<Shipment[]> | undefined;

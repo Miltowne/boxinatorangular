@@ -23,12 +23,12 @@ export class LoginService {
     // Login function that checks if the user already exists
     public login(email: string): string 
     {
-        this.checkUsername(email)
+        this.loginWithEmail(email)
         return "Logged in"
     }
 
     // Checks if user exists
-    public checkUsername(email: string): void {
+    public loginWithEmail(email: string): void {
         axios.get<User>(`${apiUsers}/email/${email}`).then((user) => this.userService.user = user.data)
         
     }
