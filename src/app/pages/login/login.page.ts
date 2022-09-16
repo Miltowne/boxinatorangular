@@ -16,7 +16,7 @@ export class LoginPage {
   }
 
   handleLogin(): void { // Redirects to the main page.
-    this.router.navigateByUrl("/main")
+    this.router.navigateByUrl("/profile")
   }
 
 }
