@@ -22,6 +22,7 @@ export class UserService {
         StorageUtil.storageSave<User>(StorageKeys.User, user!);
         this._user = user;
     }
+    
 
     constructor() {
         this._user = StorageUtil.storageRead<User>(StorageKeys.User);
