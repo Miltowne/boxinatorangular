@@ -5,8 +5,6 @@
 export const environment = {
   production: false,
   apiUsers: "https://boxinatorboxboysapi.azurewebsites.net/api/v1/users",
-  apiPokemons: "https://pokeapi.co/api/v2/pokemon",
-  API_KEY: "lv8ru8DUZUqGAFKlHe+fwQ=="
 };
 /*
  * For easier debugging in development mode, you can import the following file
