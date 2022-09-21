@@ -23,12 +23,12 @@
               "src/assets"
             ],
             "styles": [
-              
+
               {
                 "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
               },
               "src/styles.css"
-          
+
             ],
             "scripts": []
           },
@@ -37,13 +37,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "6mb",
-                  "maximumError": "7mb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "6mb",
-                  "maximumError": "7mb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
                 }
               ],
               "fileReplacements": [
