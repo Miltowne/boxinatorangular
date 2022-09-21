@@ -1,5 +1,5 @@
-<body class="color-theme-yellow h-screen">
-  <div ng-app="myApp" class="container" style="width: 550px">
+<body class="color-theme-yellow h-80">
+  <div ng-app="myApp" class="container">
   <div class="register-box">
 
     <div style="text-align: center">
@@ -10,118 +10,144 @@
       <form
         role="form"
         class="well"
-        ng-hide="ifSearchUser"
         #registerForm="ngForm"
-        (ngSubmit)="registerSubmit(registerForm)"
+        (ngSubmit)="save(registerForm.value, registerForm.valid!)"
       >
       <div class="form-group">
-          <label for="firstname"> First Name: </label>
+          <label> Firstname: </label>
           <input
-          ngModel
-          #firstname
+          [ngModel]="regUser?.firstName"
+          #firstname="ngModel"
           name="firstname"
-          type="firstname"
-          id="firstname"
+          required
+          minlength="2"
+          maxlength="20"
           class="form-control"
           placeholder="firstname"
           />
+          <small [hidden]="firstname.valid || (firstname.pristine && !registerForm.submitted)">
+            firstname is required (minimum 2 characters).
+          </small>
         </div>
+        <!-- <pre *ngIf="firstname.errors">{{firstname.errors | json}}</pre> -->
         <div class="form-group">
-          <label for="lastname"> Last Name: </label>
+          <label> Lastname: </label>
           <input
-          ngModel
-          #lastname
-          name="lastname"
-          type="lastname"
-          id="lastname"
+          [ngModel]="regUser?.lastName"
+          #lastName="ngModel"
+          name="lastName"
+          required
+          minlength="2"
+          maxlength="20"
           class="form-control"
-          placeholder="lastname"
+          placeholder="lastName"
           />
+          <small [hidden]="lastName.valid || (lastName.pristine && !registerForm.submitted)">
+            lastName is required (minimum 2 characters).
+          </small>
         </div>
+        <!-- <pre *ngIf="lastName.errors">{{lastName.errors | json}}</pre> -->
         <div class="form-group">
-          <label for="email"> Email: </label>
+          <label> Email: </label>
           <input
-          ngModel
-          #email
-          name="email"
+          [ngModel]="regUser?.email"
+          #email="ngModel"
           type="email"
-          id="email"
+          name="email"
+          required 
+          email="true"
           class="form-control"
           placeholder="email"
           />
+          <small [hidden]="email.valid || (email.pristine && !registerForm.submitted)">
+            Email is required and format should be <i>thor@odinson.com</i>.
+          </small>
         </div>
         <div class="form-group">
-          <label for="password"> Password: </label>
+          <label> Password: </label>
           <input
-          ngModel
-          #password
+          [ngModel]="regUser?.password"
+          #password="ngModel"
           name="password"
           type="password"
-          id="password"
+          required
+          validateEqual="confirmPassword" reverse="true"
           class="form-control"
           placeholder="password"
           />
+          <small [hidden]="password.valid || (password.pristine &&
+           !registerForm.submitted)" class="text-danger">
+            Password is required
+          </small>
         </div>
         <div class="form-group">
-          <label for="comfirmpassword"> Comfirm Password: </label>
+          <label> Confirm Password: </label>
           <input
-          ngModel
-          #country
-          name="comfirmpassword"
+          [ngModel]="regUser?.confirmPassword"
+          #confirmPassword="ngModel"
+          name="confirmPassword"
           type="password"
-          id="comfirmpassword"
+          required
+          validateEqual="password"
+          
           class="form-control"
-          placeholder="comfirmpassword"
+          placeholder="confirmPassword"
           />
+          <small [hidden]="confirmPassword.valid ||
+          (confirmPassword.pristine && !registerForm.submitted)" class="text-danger">
+            password mismatch
+          </small>
+          <!-- <pre *ngIf="confirmPassword.errors" class="margin-20">{{ confirmPassword.errors | json }}</pre> -->
         </div>
         <div class="form-group">
-          <label for="country"> Country: </label>
+          <label> Country: </label>
           <input
-          ngModel
-          #country
+          [ngModel]="regUser?.country"
+          #country="ngModel"
           name="country"
-          type="text"
-          id="country"
+          required
+          minlength="2"
+          maxlength="20"
           class="form-control"
-          placeholder="Enter country"
+          placeholder="country"
           />
+          <small [hidden]="country.valid || (country.pristine && !registerForm.submitted)">
+            country is required (minimum 2 characters).
+          </small>
         </div>
+        <!-- <pre *ngIf="country.errors">{{country.errors | json}}</pre> -->
         <div class="form-group">
           <label for="postalcode"> Postal Code: </label>
           <input
-          ngModel
-          #postalcode
+          [ngModel]="regUser?.postalCode"
+          #postalcode="ngModel"
           name="postalcode"
-          type="text"
-          id="postalcode"
+          required
           class="form-control"
           placeholder="Enter Postal Code"
           />
         </div>
+        <small [hidden]="postalcode.valid || (postalcode.pristine && !registerForm.submitted)">
+          postalcode is required.
+        </small>
         <div class="form-group">
           <label for="phone"> Phone: </label>
           <input
-          ngModel
-          #phone
+          [ngModel]="regUser?.phoneNumber" 
+          #phone="ngModel"
           name="phone"
           type="text"
           id="phone"
+          required
             class="form-control"
             placeholder="Enter Phone "
             />
           </div>
-        <!-- <div class="form-group">
-          <label for="name"> Date Of Birth: </label>
-          <input
-          type="text"
-          id="dateofbirth"
-          class="form-control"
-          placeholder="Enter Date Of Birth"
-          ng-model="newuser.dateofbirth"
-          />
-        </div> -->
+          <small [hidden]="postalcode.valid || (postalcode.pristine && !registerForm.submitted)">
+            postalcode is required.
+          </small>
         <br />
-        <input type="hidden" ng-model="newuser.id" />
+        <input type="hidden"/>
         <input
         type="submit"
         class="btn btn-primary"
