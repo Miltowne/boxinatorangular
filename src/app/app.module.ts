@@ -24,6 +24,7 @@ import "hammerjs";
 import { KendoGridComponent } from './components/kendo-grid/kendo-grid.component';
 import { ProfilePage } from './pages/profile/profile.page';
 import { ShipmentFormGuestuserComponent } from './components/shipment-form-guestuser/shipment-form-guestuser.component';
+import { EqualValidator } from './equal-validator.directive';
 
 
 
@@ -43,6 +44,7 @@ import { ShipmentFormGuestuserComponent } from './components/shipment-form-guest
     KendoGridComponent,
     ProfilePage,
     ShipmentFormGuestuserComponent,
+    EqualValidator,
   
     
   ],

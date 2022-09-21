@@ -11,6 +11,6 @@ a {
     text-decoration: none;
 }
 
-:hover{
+button:hover, a:hover{
     color: yellow;
 }

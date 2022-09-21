@@ -1,14 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserRegister } from 'src/app/models/user.model';
 import { LoginService } from 'src/app/services/login/login.service';
+
+
 
 @Component({
   selector: 'app-register-form',
   templateUrl: './register-form.component.html',
   styleUrls: ['./register-form.component.css']
 })
+
 export class RegisterFormComponent implements OnInit {
+
+public regUser: UserRegister | undefined;
+
+
 
   constructor(
     private readonly service: LoginService,
@@ -16,29 +23,39 @@ export class RegisterFormComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.regUser = {
+    firstName:'',
+    lastName:'',
+    email:'',
+    password:'',
+    confirmPassword: '',
+    country:'',
+    postalCode:0,
+    phoneNumber:0,
+    }
   }
 
-  public registerSubmit(form: NgForm){
-    const {firstname, lastname, email, password, country, postalcode, phonenumber } = form.value
+  save(model: UserRegister, isValid: boolean) {
+    console.log(model, isValid)
+    if(!isValid){
+      alert("passwords des not match")
+    }
+    else{
+      this.registerSubmit(model)
+    }
+  }
+
+  public registerSubmit(user: any){
+    const {firstname, lastname, email, password, country, postalcode, phonenumber } = user
 
     this.service.createUserAxios(firstname, lastname, email, password, country, postalcode, phonenumber)
 
     this.router.navigateByUrl("/main")
-    console.log(firstname)
-    console.log(lastname)
+
     
 
-    // this.service.createUserAxios()
+
   }
 
 
 }
- // const body = { FirstName: "pelle",
-        // LastName: "Larsson",
-        // Email: "pelle@larsson.com",
-        // Password: "abcde123",
-        // Country: "SV",
-        // PostalCode: 12345,
-        // PhoneNumber: 701234567,
-        // DataOfBirth: Date.now(),
-        // AccountType: 1 }

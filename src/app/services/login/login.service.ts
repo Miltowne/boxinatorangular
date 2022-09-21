@@ -9,7 +9,7 @@ import { UserService } from "../user/user.service";
 
 
 // Variable for getting the Key and Url from the environment file
-const { apiUsers, API_KEY } = environment;
+const { apiUsers } = environment;
 
 @Injectable({
     providedIn: 'root'
